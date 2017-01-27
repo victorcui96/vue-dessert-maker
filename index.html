@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dessert Maker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="container">
+            <h1>Make Your Dessert</h1>
+            <p>Here are instructions for how to use this application. You should update this paragraph and include stuff like this in your projects.</p>
+            <div class="Holders">
+                <div class="Holder Holder--fruit">
+                  <img v-if="currentFruit" v-bind:src="images.fruits[currentFruit]">
+                </div>
+                <div class="separator">+</div>
+                <div class="Holder Holder--dessert">
+                  <img v-if="currentDessert" v-bind:src="images.desserts[currentDessert]" alt="">
+                </div>
+                <div class="separator">=</div>
+                <div class="Holder Holder--result">
+                  <img v-if="currentFruit && currentDessert" v-bind:src="images.mixes[currentFruit][currentDessert]" alt="">
+                </div>
+            </div>
+            <div class="Selectors">
+                <div class="Fruit-selector">
+                    <h3>Fruit Ingredients</h3>
+                    <div class="Fruit Fruit--apple" v-on:click="setFruit('apple')">
+                        Apple
+                    </div>
+                    <div class="Fruit Fruit--orange" v-on:click="setFruit('orange')">
+                        Orange
+                    </div>
+                    <div class="Fruit Fruit--banana" v-on:click="setFruit('banana')">
+                        Banana
+                    </div>
+                </div>
+                <div class="Dessert-selector">
+                    <h3>Dessert Ingredients</h3>
+                    <div class="Dessert Dessert--icecream" v-on:click="setDessert('icecream')">
+                        Ice Cream
+                    </div>
+                    <div class="Dessert Dessert--cake" v-on:click="setDessert('cake')">
+                        Cake
+                    </div>
+                    <div class="Dessert Dessert--pie" v-on:click="setDessert('pie')">
+                        Pie
+                    </div>
+                </div>
+            </div>
+            <div class="Reset" v-on:click="reset()">
+                Reset
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+</body>
+
+</html>
